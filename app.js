@@ -28,7 +28,7 @@ const getMovie = async (datas) => {
 		const res= await fetch(movieUrl).catch(err=>console.log(err))
 		const res_text = await res.text().catch(err=>console.log(err))
 		const $ = cheerio.load(res_text)
-		const title = datas[i].title
+		const title = $('.sc-b73cd867-0').text()
 		const movie_release_year = $('.sc-8c396aa2-0 > li:nth-child(1) > span:nth-child(2)').text()
 		const imdb_rating = $('.sc-910a7330-12 > div:nth-child(1) > div:nth-child(1) > a:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > span:nth-child(1)').text()
 		const summary = $('.sc-16ede01-0').text()
